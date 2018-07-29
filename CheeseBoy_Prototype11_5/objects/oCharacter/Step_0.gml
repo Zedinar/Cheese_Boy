@@ -1,0 +1,2 @@
+CharacterMovementAndCollisions();
+CharacterAnimate();
