@@ -1,29 +1,10 @@
 //walking
 
-scr_chr_inputs();
-
 MAX_WALKING_SPEED = 2.7;	//default = 2.7
 WALKING_ACCELERATION = .5	// default = .5
 
-
-//Determine direction. Move to it's own script when possible.
-tryingToMove = false;
-tryingWhichDirection = 0;
-
-if (keyRight && keyLeft)
-{
-	tryingWhichDirection = 0;
-}
-else if (keyRight)
-{
-	tryingWhichDirection = 1;
-}
-else if (keyLeft)
-{
-	tryingWhichDirection = -1;
-}
-	
-tryingToMove = (tryingWhichDirection != 0);
+//gravity and facing
+scr_chr_facing();
 
 if (tryingToMove)
 {
@@ -41,7 +22,6 @@ if (tryingToMove)
 }
 
 scr_chr_collision();
-scr_chr_friction();
 
 
 if (keyNone)

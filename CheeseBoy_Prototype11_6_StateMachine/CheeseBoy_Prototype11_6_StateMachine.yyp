@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "475e0635-a46c-46c5-b4ff-d66ab502d039",
+            "Value": {
+                "id": "910d944c-1025-4153-a7b9-843100cf14ee",
+                "resourcePath": "scripts\\scr_chr_facing\\scr_chr_facing.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5151499d-ba10-4301-b499-5f61d0da7e7f",
             "Value": {
                 "id": "285f075a-c280-4566-ad93-204d87e94410",
@@ -223,6 +231,14 @@
             }
         },
         {
+            "Key": "7dec861a-703c-40f7-895e-e0f892c70c44",
+            "Value": {
+                "id": "520f65bf-c15f-43ac-b4ad-aafbc3bb5236",
+                "resourcePath": "scripts\\scr_chr_crouching\\scr_chr_crouching.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7fae2e3d-20a9-44b4-bba4-4601f918a624",
             "Value": {
                 "id": "ae2399bf-4921-422b-a2e2-388dbdaa523a",
@@ -263,6 +279,14 @@
             }
         },
         {
+            "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
+            "Value": {
+                "id": "912d482e-77ed-4009-ac96-2893494a68b5",
+                "resourcePath": "options\\linux\\options_linux.yy",
+                "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
             "Key": "ad8db5f4-4255-4812-80f0-f6c46be0d6c3",
             "Value": {
                 "id": "71e4b272-b810-456f-ac58-5074957b2c17",
@@ -287,11 +311,27 @@
             }
         },
         {
+            "Key": "b61a0d55-dd22-4393-91ad-b3a037c0b07e",
+            "Value": {
+                "id": "096229fc-8dcd-4a62-977b-e2306d48a49e",
+                "resourcePath": "scripts\\scr_chr_crouched\\scr_chr_crouched.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b7cb2fcc-217a-430b-8a6f-649e6af61caa",
             "Value": {
                 "id": "4ec89026-cd66-40f7-a8b3-594ad519629c",
                 "resourcePath": "scripts\/CharacterAnimate\/CharacterAnimate.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bdcb16f0-2c99-48d6-8e8b-dec5746cc071",
+            "Value": {
+                "id": "b71911d5-9216-4a19-a98a-bdeec4fa55eb",
+                "resourcePath": "views\\bdcb16f0-2c99-48d6-8e8b-dec5746cc071.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -469,11 +509,14 @@
         "d3c46a44-4a0e-4609-891b-feb45ccb8062",
         "188c61b0-cd6b-44ca-aa73-944192ddf207",
         "e2689831-f808-4057-978e-3a9749c0b28e",
+        "475e0635-a46c-46c5-b4ff-d66ab502d039",
         "fd7fd6c9-2e81-4ab5-962e-1a166afc1fd1",
         "a7add476-23cf-4de8-8167-fbdd27b6e54a",
         "f0627e22-8357-4d51-b5b8-b58f6eb869da",
         "c76a9baf-e49b-428a-b14f-7c6a287d1d7a",
-        "e49ba5a0-fe39-4458-a494-916636b88ae2"
+        "e49ba5a0-fe39-4458-a494-916636b88ae2",
+        "7dec861a-703c-40f7-895e-e0f892c70c44",
+        "b61a0d55-dd22-4393-91ad-b3a037c0b07e"
     ],
     "tutorial": ""
 }

@@ -1,30 +1,37 @@
-scr_chr_inputs()
-
 //for prototype purposes
 INITIAL_JUMP_VELOCITY = 7;	//default = 6.7
-FALLING_ACCELERATION = .2;	//default = 1
-MAX_FALLING_SPEED = 5.8;	//default = 5.8
+FALLING_ACCELERATION = .3;	//default = 1
+MAX_FALLING_SPEED = 6;	//default = 5.8
+MAX_JUMPING_SPEED = 8;	//default is 6.7
+JUMPING_DECELERATION = 3 //default is 3
+HORIZONTAL_TO_VERTICAL_SPEED_FACTOR = .33 //default = .33
 
-//Allow Lateral Movement. Should be part of it's own move script.
+
+
+//jumping
+if (isTouchingGround && keyUp)
+{
+	velocityY = -INITIAL_JUMP_VELOCITY * max(abs(velocityX)*HORIZONTAL_TO_VERTICAL_SPEED_FACTOR, 1);
+	show_debug_message(string(velocityY));
+	show_debug_message(string(velocityX));
+	show_debug_message("jumping");
+}
+
+//reduce vertical speed if not holding jump button.
+if (!keyUp && !isTouchingGround)
+{
+	velocityY = max(velocityY, velocityY/JUMPING_DECELERATION);
+}
+
+if (velocityY > MAX_FALLING_SPEED) velocityY = MAX_FALLING_SPEED; //max falling speed
+if (velocityY < -MAX_JUMPING_SPEED) velocityY = -MAX_JUMPING_SPEED; //max jumping speed
+
+
+//Facing
+scr_chr_facing();
+
+//Allow Lateral Movement. 
 //Currently using walk_accel. Could make air_accel to change aerial movement.
-tryingToMove = false;
-tryingWhichDirection = 0;
-
-if (keyRight && keyLeft)
-{
-	tryingWhichDirection = 0;
-}
-else if (keyRight)
-{
-	tryingWhichDirection = 1;
-}
-else if (keyLeft)
-{
-	tryingWhichDirection = -1;
-}
-	
-tryingToMove = (tryingWhichDirection != 0);
-
 if (tryingToMove)
 {
 	directionFacing = tryingWhichDirection;
@@ -40,24 +47,12 @@ if (tryingToMove)
 	}
 }
 
-
-//jumping
-if (isTouchingGround && keyUp)
-{
-	velocityY = -INITIAL_JUMP_VELOCITY * max(abs(velocityX) / 3.0, 1);
-}
-
-//reduce vertical speed if not holding jump button.
-if (!keyUp && !isTouchingGround)
-{
-	velocityY = max(velocityY, velocityY/4);
-}
-
-if (velocityY > MAX_FALLING_SPEED) velocityY = MAX_FALLING_SPEED; //max falling speed
-if (velocityY < -MAX_JUMPING_SPEED) velocityY = -MAX_JUMPING_SPEED; //max jumping speed
-
-scr_chr_collision();
+//Second Collision test and Friction
 scr_chr_air_friction();
+scr_chr_collision();
+
+
+//State Transitions
 
 if (!keyUp && isTouchingGround && (keyLeft or keyRight) && !keyRun)
 {
@@ -72,7 +67,6 @@ if (!keyUp && isTouchingGround && (keyLeft or keyRight) && keyRun)
 if (!keyUp && isTouchingGround)
 {
 	currentState = states.IDLE;
-	show_debug_message("switching to idle from jump")
 }
 
   //Shortest jump. Replaced with speed reduction above.

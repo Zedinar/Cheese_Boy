@@ -1,6 +1,3 @@
-scr_chr_inputs();
-
-
 if (keyRun)
 {
 	currentState = states.RUNNING;
@@ -17,14 +14,17 @@ if (keyUp)
 	currentState = states.JUMPING;
 	show_debug_message("switching to jump from idle");
 }
+
+if (keyDown && isTouchingGround)
+{
+	currentState = states.CROUCHING;
+}
 //if (keyRight && keyLeft)
 //	tryingWhichDirection = 0;
 //else if (keyRight)
 //	tryingWhichDirection = 1;
 //else if (keyLeft)
 //	tryingWhichDirection = -1;
-if (keyDown)
-	tryingToCrouch = true;
 
 
 //if (isTouchingGround && tryingToJump && isJumping == false && canJumpAgain)
@@ -67,4 +67,5 @@ else
 	canChangeMap = true;
 }
 
+scr_chr_friction();
 scr_chr_collision();
